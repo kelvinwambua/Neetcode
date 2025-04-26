@@ -1,14 +1,12 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        length = len(nums)
-        for i in range(length):
-            left = i
-            right = length-1
-            while (left < right):
-                if nums[left] + nums[right] == target:
-                    result = [left, right]
-                    print("[" + ",".join(str(x) for x in result) + "]")
-                    return result
-                if (left == right):
-                    left += 1
-                right -= 1
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        for i in range(len(nums)):
+            for j in range(len(nums) - 1):
+                if nums[i] + nums[j] == target and i != j:
+                    return [i, j]
+        return [0, 0]
