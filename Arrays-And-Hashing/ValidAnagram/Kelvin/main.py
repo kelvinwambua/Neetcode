@@ -21,3 +21,21 @@ class Solution(object):
 class Solution(object):
     def isAnagram(self, s, t):
         return sorted(s) == sorted(t)
+
+
+# Improves Time and Space Complexity
+# Time complexity: O(n)
+# Space complexity: O(1)
+class Solution(object):
+    def isAnagram(self, s, t):
+        if len(s) != len(t):
+            return False
+        count = {}, {}
+        for i in range(len(s)):
+            count[s[i]] = count.get(s[i], 0) + 1
+        for i in range(len(t)):
+            count[t[i]] = count.get(t[i], 0) - 1
+            if count[t[i]] < 0:
+                return False
+        return True
+
